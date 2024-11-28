@@ -1,0 +1,133 @@
+:root{
+    --primary : black;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.device {
+  width: calc(320px - 2rem);
+
+  min-height: 90%;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.device-top-bezel {
+  width: 100%;
+  height: 56px;
+  background-color: var(--primary);
+}
+.device-bottom-bezel {
+  width: 100%;
+
+  background-color: var(--primary);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.device-home-button {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: white;
+  margin: 0.5rem 0;
+}
+.device::after {
+  content: "Mobile S 320px";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 2rem;
+}
+
+@media screen and (min-width: 375px) {
+    :root{
+        --primary: red;
+    }
+    .device{
+        width: calc(375px - 2rem);
+    }
+  .device::after {
+    content: "Mobile M 375px";
+  }
+}
+@media (min-width : 425px) {
+    :root{
+        --primary : green;
+    }
+    .device{
+        width: calc(425px - 2rem);
+    }
+    .device::after{
+        content: 'Mobile L 425px';
+    }
+}
+@media (min-width : 768px) {
+    :root{
+        --primary : blue;
+    }
+    .device{
+        width: calc(768px - 2rem);
+    }
+    .device::after{
+        content: 'Tablet L 768px';
+    }
+}
+
+@media (min-width : 1024px) {
+    :root{
+        --primary : brown;
+    }
+    .device{
+        width: calc(1024px - 2rem);
+        border: 5px solid var(--primary);
+    }
+    .device-bottom-bezel, .device-top-bezel{
+        height: 0px;
+    }
+    .device-home-button{
+        display: none;
+    }
+    .device::after{
+        content: 'Laptop L  1024px';
+    }
+}
+@media (min-width : 1440px) {
+    :root{
+        --primary :darkviolet;
+    }
+    .device{
+        max-width: calc(1440px - 2rem);
+        border: 5px solid var(--primary);
+    }
+    .device-bottom-bezel, .device-top-bezel{
+        height: 0px;
+    }
+    .device-home-button{
+        display: none;
+    }
+    .device::after{
+        content: 'Laptop L  1440px';
+    }
+}
